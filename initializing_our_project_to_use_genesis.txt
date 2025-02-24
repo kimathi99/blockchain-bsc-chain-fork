@@ -1,0 +1,1 @@
+docker run --rm -it --entrypoint /usr/local/bin/geth   -v "$(pwd)/node:/app/node"   -v "$(pwd)/genesis.json:/app/genesis.json"   my-bsc-node   --datadir /app/node init /app/genesis.json

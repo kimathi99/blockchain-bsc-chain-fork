@@ -1,0 +1,2 @@
+docker run --rm -it   -v "$(pwd)/node:/app/node"   --entrypoint /usr/local/bin/geth   my-bsc-node account new --datadir /app/node
+

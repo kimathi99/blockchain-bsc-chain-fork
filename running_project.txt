@@ -1,0 +1,9 @@
+docker run -d --name my-bsc-node \
+  -v "$(pwd)/node:/app/node" \
+  -v "$(pwd)/genesis.json:/app/genesis.json" \
+  -p 8545:8545 -p 30303:30303 \
+  my-bsc-node \
+  --datadir /app/node --networkid 12345 \
+  --http --http.addr "0.0.0.0" --http.port 8545 --http.api "web3,eth,net,personal,miner,clique" \
+  --ws --ws.addr "0.0.0.0" --ws.port 8546 --ws.api "web3,eth,net,clique" \
+  --syncmode snap --allow-insecure-unlock

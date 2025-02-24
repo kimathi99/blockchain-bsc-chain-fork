@@ -1,0 +1,8 @@
+docker run -d --name my-bsc-node \
+  -p 8545:8545 -p 30303:30303 \
+  -v $(pwd)/node:/app/node \
+  -v $(pwd)/genesis.json:/app/genesis.json \
+  bsc-fork --datadir /app/node --networkid 56 \
+  --http --http.addr 0.0.0.0 --http.port 8545 --http.api "eth,net,web3,personal" \
+  --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.api "eth,net,web3" \
+  --syncmode snap  # ✅ Use 'snap' instead of 'fast'
